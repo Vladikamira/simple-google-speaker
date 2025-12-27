@@ -21,6 +21,7 @@ A simple Go-based service that allows you to send text-to-speech (TTS) messages 
 
 To ensure the service can discover devices on your network, it's best to use the host network mode.
 
+#### Using Docker CLI
 ```bash
 # Build the image
 docker build -t simple-google-speaker .
@@ -34,7 +35,30 @@ docker run -d \
   simple-google-speaker
 ```
 
-> **Note**: `--network host` is required for mDNS discovery to work correctly from inside the container.
+#### Using Docker Compose
+Create a `docker-compose.yml` file:
+```yaml
+services:
+  speaker:
+    image: vladikamira/simple-google-speaker:latest
+    container_name: simple-google-speaker
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - PORT=:8080
+      - LANGUAGE=en
+      - MESSAGE_TEXT="Good morning"
+      - VOLUME=70
+    volumes:
+      - ./audio:/app/audio
+```
+
+Then run:
+```bash
+docker-compose up -d
+```
+
+> **Note**: `network_mode: host` is required for mDNS discovery to work correctly from inside the container.
 
 ### Running with Go
 

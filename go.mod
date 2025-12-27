@@ -1,6 +1,6 @@
 module github.com/Vladikamira/simple-google-speaker
 
-go 1.25.5
+go 1.23
 
 require (
 	github.com/barnybug/go-cast v0.0.0-20240523082034-d44bd6e8c872

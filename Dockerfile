@@ -23,8 +23,8 @@ FROM alpine:latest
 
 WORKDIR /app
 
-# Install runtime dependencies (like ca-certificates for HTTPS requests to TTS)
-RUN apk add --no-cache ca-certificates
+# Install runtime dependencies
+RUN apk add --no-cache ca-certificates alsa-lib
 
 # Copy binary from builder
 COPY --from=builder /app/simple-google-speaker .

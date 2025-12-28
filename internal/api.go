@@ -45,12 +45,13 @@ func (h *APIHandler) SpeakHandler(w http.ResponseWriter, r *http.Request) {
 	// Use defaults from config if not provided
 	message := req.Message
 	if message == "" {
-		message = h.cfg.MessageText
+		http.Error(w, "No message provided", http.StatusBadRequest)
+		return
 	}
 
 	language := req.Language
 	if language == "" {
-		language = h.cfg.Language
+		http.Error(w, "No language provided", http.StatusBadRequest)
 	}
 
 	volume := h.cfg.Volume

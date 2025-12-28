@@ -46,8 +46,6 @@ services:
     restart: unless-stopped
     environment:
       - PORT=:8080
-      - LANGUAGE=en
-      - MESSAGE_TEXT="Good morning"
       - VOLUME=70
     volumes:
       - ./audio:/app/audio
@@ -73,8 +71,6 @@ The service can be configured using the following environment variables:
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `PORT` | The port the HTTP server listens on | `:8080` |
-| `LANGUAGE` | Default language for TTS (e.g., `ru`, `en`) | `en` |
-| `MESSAGE_TEXT` | Default message text for fallback | `Time to sleep` |
 | `VOLUME` | Speaker volume in percent (0-100) | `100` |
 | `AUDIO_FOLDER` | Directory to store generated audio files | `audio` |
 

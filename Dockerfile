@@ -38,8 +38,6 @@ EXPOSE 8080
 # Environment variables with defaults
 ENV PORT=:8080
 ENV AUDIO_FOLDER=audio
-ENV LANGUAGE=en
-ENV MESSAGE_TEXT="Time to sleep"
 ENV VOLUME=100
 
 # Run the application

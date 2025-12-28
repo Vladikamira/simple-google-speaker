@@ -3,13 +3,9 @@ package internal
 import (
 	"os"
 	"strconv"
-
-	"github.com/hegedustibor/htgo-tts/voices"
 )
 
 type Config struct {
-	Language    string
-	MessageText string
 	Volume      float64
 	AudioFolder string
 	Port        string
@@ -25,8 +21,6 @@ func LoadConfig() *Config {
 	}
 
 	return &Config{
-		Language:    getEnv("LANGUAGE", voices.English),
-		MessageText: getEnv("MESSAGE_TEXT", "Time to sleep"),
 		Volume:      volumeFloat,
 		AudioFolder: getEnv("AUDIO_FOLDER", "audio"),
 		Port:        getEnv("PORT", ":8080"),

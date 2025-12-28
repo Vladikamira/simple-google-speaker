@@ -10,7 +10,7 @@ import (
 func main() {
 	cfg := internal.LoadConfig()
 
-	tts := internal.NewTTSService(cfg.AudioFolder, cfg.Language)
+	tts := internal.NewTTSService(cfg.AudioFolder)
 	castSvc := internal.NewCastService()
 	api := internal.NewAPIHandler(cfg, tts, castSvc)
 

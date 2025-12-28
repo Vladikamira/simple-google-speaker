@@ -11,14 +11,12 @@ import (
 )
 
 type TTSService struct {
-	folder   string
-	language string
+	folder string
 }
 
-func NewTTSService(folder, language string) *TTSService {
+func NewTTSService(folder string) *TTSService {
 	return &TTSService{
-		folder:   folder,
-		language: language,
+		folder: folder,
 	}
 }
 
